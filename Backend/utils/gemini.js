@@ -6,7 +6,7 @@ const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 const getGeminiResponse = async (message) => {
-    const maxRetries = 2;
+    const maxRetries = 3;
 
     for (let attempt = 0; attempt <= maxRetries; attempt++) {
         try {
@@ -21,14 +21,17 @@ const getGeminiResponse = async (message) => {
         } catch (err) {
             console.log(`Attempt ${attempt + 1} failed:`, err?.status || err.message);
 
-            const isOverloaded = err?.status === 503;
-            const isLastAttempt = attempt === maxRetries;
+           
 
-            if (!isOverloaded || isLastAttempt) {
-                return "Something went wrong while generating a response. Please try again in a moment.";
-            }
+                   const isRetryable = err?.status === 503 || err?.status === 429;
+                           const isLastAttempt = attempt === maxRetries;
 
-            await delay(2000);
+                                if (!isRetryable || isLastAttempt) {
+                          return "Something went wrong while generating a response. Please try again in a moment.";
+                    }
+
+await delay(2000 * (attempt + 1));
+
         }
     }
 };
