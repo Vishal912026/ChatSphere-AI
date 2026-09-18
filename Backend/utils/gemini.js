@@ -11,7 +11,7 @@ const getGeminiResponse = async (message) => {
     for (let attempt = 0; attempt <= maxRetries; attempt++) {
         try {
             const response = await ai.models.generateContent({
-                model: "gemini-3.6-flash",
+              model: "gemini-3.5-flash-lite",
                 contents: message,
                 config: {
                     systemInstruction: "If a question involves current events, current officeholders, live prices, or any time-sensitive/real-time information, add exactly ONE short disclaimer line at the very end of your answer, in this exact format: '⚠️ Note: This information may be outdated — please verify from a current source.' Do not mention specific cutoff dates. For static/general-knowledge questions (science, history, definitions, comparisons, etc.), answer normally with no disclaimer."
