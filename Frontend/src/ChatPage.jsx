@@ -4,6 +4,7 @@ import ChatWindow from "./ChatWindow.jsx";
 import { MyContext } from "./MyContext.jsx";
 import { v1 as uuidv1 } from "uuid";
 import { useState, useEffect } from 'react';
+import server from "./environment";
 
 function ChatPage() {
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark"); 
@@ -17,10 +18,10 @@ function ChatPage() {
   const [allThreads, setAllThreads] = useState([]);
 
      useEffect(() => {
-    const loadCurrChat = async () => {
+    const loadCurrChat = async () => {€
       try {
-        const response = await fetch(`http://localhost:8080/api/thread/${currThreadId}`, {
-            headers: { "Authorization": `Bearer ${localStorage.getItem("token")}` }
+        const response = await fetch(`${server.prod}/api/thread/${currThreadId}`, {
+        headers: { "Authorization": `Bearer ${localStorage.getItem("token")}` }
         });
         const res = await response.json();
         if (res.length > 0) {
