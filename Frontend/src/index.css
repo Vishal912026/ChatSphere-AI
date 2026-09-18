@@ -1,0 +1,27 @@
+:root {
+    --bg-primary: #343541;
+    --bg-secondary: #202123;
+    --bg-tertiary: #2a2b32;
+    --bg-input: #40414f;
+    --bg-user-msg: #40414f;
+     --bg-table-header: #40414f;
+    --border-color: #565869;
+    --text-primary: #fff;
+    --text-secondary: #8e8ea0;
+     --text-table-header: #ececf1;
+    --danger: #ff4d4f;
+}
+
+.light-theme {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f7f7f8;
+    --bg-tertiary: #ececf1;
+    --bg-table-header: #e5e5ea;
+    --bg-input: #f0f0f3;
+    --bg-user-msg: #e5e5ea;
+    --border-color: #d9d9e3;
+    --text-primary: #202123;
+    --text-table-header: #1a1a1a;
+    --text-secondary: #6e6e80;
+    --danger: #d93025;
+}
