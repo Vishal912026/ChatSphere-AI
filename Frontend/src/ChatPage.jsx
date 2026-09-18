@@ -18,7 +18,7 @@ function ChatPage() {
   const [allThreads, setAllThreads] = useState([]);
 
      useEffect(() => {
-    const loadCurrChat = async () => {€
+    const loadCurrChat = async () => {
       try {
         const response = await fetch(`${server.prod}/api/thread/${currThreadId}`, {
         headers: { "Authorization": `Bearer ${localStorage.getItem("token")}` }
