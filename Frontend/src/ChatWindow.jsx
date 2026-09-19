@@ -40,15 +40,21 @@ function ChatWindow() {
         })
     };
 
-    try {
-        const response = await fetch(`${server.prod}/api/chat`, options);
-        const res = await response.json();
-        setReply(res.reply);
-    } catch (err) {
+         try {
+       const response = await fetch(`${server.prod}/api/chat`, options);
+       const res = await response.json();
+
+        if (!response.ok) {
+         setReply(res.error || "Something went wrong. Please try again.");
+        } else {
+            setReply(res.reply);
+           }
+          } catch (err) {
         console.log(err);
-    }
-    setLoading(false);
-};
+        setReply("Something went wrong. Please try again.");
+           }
+            setLoading(false);
+            };
 
 
 useEffect(() => {
