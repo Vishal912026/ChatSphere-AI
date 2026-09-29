@@ -100,3 +100,9 @@ h1 {
         overflow-x: auto;
     }
 }
+
+.gptDiv ul,
+.gptDiv ol {
+    padding-left: 22px;
+    margin: 8px 0;
+}

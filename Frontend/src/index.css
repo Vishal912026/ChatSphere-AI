@@ -25,3 +25,8 @@
     --text-secondary: #6e6e80;
     --danger: #d93025;
 }
+
+html, body, #root {
+    height: 100%;
+    overflow: hidden;
+}
