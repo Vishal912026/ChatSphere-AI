@@ -1,5 +1,6 @@
 .authContainer {
     height: 100vh;
+    height: 100dvh;
     width: 100%;
     display: flex;
     align-items: center;
@@ -11,7 +12,8 @@
     background-color: var(--bg-secondary, #202123);
     padding: 32px;
     border-radius: 12px;
-    width: 320px;
+    width: 90%;
+    max-width: 320px;
     display: flex;
     flex-direction: column;
     gap: 14px;

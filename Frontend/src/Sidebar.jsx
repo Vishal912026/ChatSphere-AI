@@ -5,8 +5,7 @@ import { v1 as uuidv1 } from "uuid";
 import server from "./environment";
 
 function Sidebar() {
-    const { allThreads, setAllThreads, currThreadId, setNewChat, setPrompt, setReply, setCurrThreadId, setPrevChats } = useContext(MyContext);
-
+    const { allThreads, setAllThreads, currThreadId, setNewChat, setPrompt, setReply, setCurrThreadId, setPrevChats, sidebarOpen, setSidebarOpen } = useContext(MyContext);
     const getAllThreads = async () => {
         try {
             
@@ -27,6 +26,7 @@ function Sidebar() {
 
    const createNewChat = () => {
     setNewChat(true);
+    setSidebarOpen(false);
     setPrompt("");
     setReply(null);
     const newId = uuidv1();
@@ -35,6 +35,7 @@ function Sidebar() {
     setPrevChats([]);
 }
         const changeThread = async (newThreadId) => {
+        setSidebarOpen(false);
        setCurrThreadId(newThreadId);
         localStorage.setItem("currThreadId", newThreadId);   
           try {
@@ -69,7 +70,8 @@ function Sidebar() {
     };
 
     return (
-        <section className="sidebar">
+
+        <section className={`sidebar ${sidebarOpen ? "open" : ""}`}>
             <button onClick={createNewChat}>
                 <span className="logo">ChatSphere AI</span>
                 <span><i className="fa-solid fa-pen-to-square"></i></span>

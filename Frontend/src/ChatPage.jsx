@@ -16,6 +16,7 @@ function ChatPage() {
   const [prevChats, setPrevChats] = useState([]); 
   const [newChat, setNewChat] = useState(true);
   const [allThreads, setAllThreads] = useState([]);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
      useEffect(() => {
     const loadCurrChat = async () => {
@@ -46,11 +47,13 @@ function ChatPage() {
     allThreads, setAllThreads,
     loading, setLoading,
     theme, setTheme,
+    sidebarOpen, setSidebarOpen,
   };
 
   return (
          <div className={`app ${theme === "light" ? "light-theme" : ""}`}>
        <MyContext.Provider value={providerValues}>
+        <div className={`overlay ${sidebarOpen ? "show" : ""}`} onClick={() => setSidebarOpen(false)}></div>
         <Sidebar></Sidebar>
         <ChatWindow></ChatWindow>
       </MyContext.Provider>

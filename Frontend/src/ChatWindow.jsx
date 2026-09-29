@@ -7,7 +7,7 @@ import { ScaleLoader } from "react-spinners";
 import server from "./environment";
 
 function ChatWindow() {
-    const { prompt, setPrompt, reply, setReply, currThreadId, setPrevChats, setNewChat, loading, setLoading, theme, setTheme } = useContext(MyContext);
+    const { prompt, setPrompt, reply, setReply, currThreadId, setPrevChats, setNewChat, loading, setLoading, theme, setTheme, setSidebarOpen } = useContext(MyContext);
     const navigate = useNavigate();
     const [isOpen, setIsOpen] = useState(false);
     const recognitionRef = useRef(null);
@@ -126,7 +126,10 @@ const toggleMic = () => {
     return (
         <div className="chatWindow">
             <div className="navbar">
-                <span>ChatSphere AI <i className="fa-solid fa-chevron-down"></i></span>
+                               <div className="navLeft">
+                    <i className="fa-solid fa-bars menuBtn" onClick={() => setSidebarOpen(true)}></i>
+                    <span>ChatSphere AI <i className="fa-solid fa-chevron-down"></i></span>
+                </div>
                 <div className="userIconDiv" onClick={handleProfileClick}>
                     <span className="userIcon"><i className="fa-solid fa-user"></i></span>
                 </div>

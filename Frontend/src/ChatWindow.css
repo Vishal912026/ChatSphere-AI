@@ -139,3 +139,53 @@
     50% { opacity: 0.4; }
     100% { opacity: 1; }
 }
+
+.navLeft {
+    display: flex;
+    align-items: center;
+}
+
+.menuBtn {
+    display: none;
+    cursor: pointer;
+    font-size: 18px;
+    margin-right: 14px;
+}
+
+@media (max-width: 768px) {
+    .chatWindow {
+        height: 100dvh;
+        min-width: 0;
+    }
+
+    .menuBtn {
+        display: inline-block;
+    }
+
+    .navbar {
+        padding: 10px 14px;
+        font-size: 16px;
+    }
+
+    .dropDown {
+        top: 50px;
+        right: 14px;
+    }
+
+    .chatInput {
+        padding: 8px 12px 12px 12px;
+    }
+
+    .inputBox {
+        padding: 8px 10px;
+    }
+
+    .inputBox input {
+        font-size: 16px;
+        min-width: 0;
+    }
+
+    .info {
+        font-size: 11px;
+    }
+}

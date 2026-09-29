@@ -76,3 +76,27 @@ h1 {
     background-color: var(--bg-table-header);
     color: var(--text-table-header);
 }
+
+.gptDiv {
+    word-break: break-word;
+}
+
+@media (max-width: 768px) {
+    .chats {
+        padding: 12px;
+    }
+
+    h1 {
+        margin-top: 60px;
+        font-size: 24px;
+    }
+
+    .userMessage {
+        max-width: 85%;
+    }
+
+    .gptDiv table {
+        display: block;
+        overflow-x: auto;
+    }
+}
