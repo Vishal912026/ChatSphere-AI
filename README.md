@@ -1,6 +1,6 @@
 # ChatSphere AI 🤖
 
-A full-stack ChatGPT-style AI chat application built with the MERN stack and Google's Gemini API. Features secure authentication, real-time conversations, voice input, and a fully responsive dark/light theme.
+A full-stack AI chat application built with the MERN stack and Google's Gemini API. Features secure authentication, real-time conversations, voice input, and a fully responsive dark/light theme.
 
 🔗 **Live Demo:** [https://chatsphere-ai-frontend.onrender.com](https://chatsphere-ai-frontend.onrender.com)
 
@@ -15,7 +15,7 @@ A full-stack ChatGPT-style AI chat application built with the MERN stack and Goo
 - **Chat History** — Persistent threads with create/switch/delete functionality
 - **Voice Input** — Speak-to-type using the Web Speech API, with Hindi/English toggle
 - **Dark & Light Theme** — Fully theme-aware UI with persistent user preference
-- **Responsive Design** — Clean, ChatGPT-inspired interface
+- **Responsive Design** — Works smoothly on both mobile and desktop, with a collapsible sidebar on small screens
 
 ## 🛠️ Tech Stack
 
@@ -47,3 +47,23 @@ cd Backend
 npm install
 ```
 Create a `.env` file in `Backend/`:
+
+```env
+MONGODB_URI=your_mongodb_connection_string
+GEMINI_API_KEY=your_gemini_api_key
+JWT_SECRET=your_jwt_secret
+```
+
+3. Run Backend
+```bash
+npm run dev
+```
+
+4. Setup Frontend (new terminal)
+```bash
+cd Frontend
+npm install
+npm run dev
+```
+
+5. Open `http://localhost:5173` in your browser
